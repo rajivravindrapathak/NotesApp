@@ -1,11 +1,18 @@
 import './App.css'
-import Navbar from './Components/Navbar'
+import "bootswatch/dist/lux/bootstrap.min.css"
+import Header from './Components/Header'
+import Home from './Routes/Home'
+import Create from './Routes/Create'
+import Notes from './Routes/Notes'
 
 function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Header />
+      <Home />
+      <Create />
+      <Notes />
     </div>
   )
 }
