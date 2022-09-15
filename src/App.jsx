@@ -1,20 +1,36 @@
+import React, { useState } from 'react'
 import './App.css'
-import "bootswatch/dist/lux/bootstrap.min.css"
-import Header from './Components/Header'
-import Home from './Routes/Home'
-import Create from './Routes/Create'
-import Notes from './Routes/Notes'
+import Header from "./Components/Header"
+import Home from "./File/Home"
+import Create from "./File/Create"
+import Notes from "./File/Notes"
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
+  const [notes, setNotes] = useState([])
 
   return (
-    <div className="App">
-      <Header />
-      <Home />
-      <Create />
-      <Notes />
+    <div>
+      <Header/>
+      <Routes>
+        <Route path='/' > 
+          <Home />
+        </Route>
+        <Route path='/create'>
+          <Create setNotes={setNotes} notes={notes} />
+        </Route>
+        <Route setNotes={setNotes} path='notes'>
+          <Notes />
+        </Route>
+      </Routes>
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
